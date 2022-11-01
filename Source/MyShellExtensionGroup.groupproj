@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{CCF5E0B5-FAF8-4808-B90C-F3643335BB7B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MyShellExtensions32.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MyShellExtensions.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MyShellExtensions32">
+        <MSBuild Projects="MyShellExtensions32.dproj"/>
+    </Target>
+    <Target Name="MyShellExtensions32:Clean">
+        <MSBuild Projects="MyShellExtensions32.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MyShellExtensions32:Make">
+        <MSBuild Projects="MyShellExtensions32.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MyShellExtensions">
+        <MSBuild Projects="MyShellExtensions.dproj"/>
+    </Target>
+    <Target Name="MyShellExtensions:Clean">
+        <MSBuild Projects="MyShellExtensions.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MyShellExtensions:Make">
+        <MSBuild Projects="MyShellExtensions.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MyShellExtensions32;MyShellExtensions"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MyShellExtensions32:Clean;MyShellExtensions:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MyShellExtensions32:Make;MyShellExtensions:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

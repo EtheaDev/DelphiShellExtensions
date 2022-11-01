@@ -1,0 +1,2 @@
+%systemroot%\System32\regsvr32 /u "D:\ETHEA\DelphiShellExtensions\Bin64\MyShellExtensions.dll"
+rem %systemroot%\System32\regsvr32 /u "C:\Program Files\Ethea\DelphiShellExtensions\MyShellExtensions.dll" 
